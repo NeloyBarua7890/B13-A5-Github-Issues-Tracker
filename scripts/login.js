@@ -21,7 +21,7 @@ function handleLogin() {
 
   setTimeout(() => {
     if (username === "admin" && password === "admin123") {
-      window.location.href = "dashboard.html";
+      window.location.href = "./dashboard.html";
     } else {
       btn.disabled = false;
       btnText.classList.remove("hidden");
