@@ -1,9 +1,133 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Github Issues Tracker - Login</title>
+    <title>GitHub Issues Tracker - Login</title>
+
+    <!-- daisyUI and TailwindCSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      .font-geist {
+        font-family: "Geist", sans-serif;
+      }
+    </style>
   </head>
-  <body></body>
+  <body
+    class="min-h-screen bg-[#F8FAFC] flex items-center justify-center px-4 font-geist"
+  >
+    <div class="card w-full max-w-md bg-white shadow-xl rounded-2xl">
+      <div class="card-body px-10 py-10 gap-5">
+        <!-- Logo + Title -->
+        <div class="flex flex-col items-center gap-3 mb-2">
+          <img src="./assets/github-logo.png" alt="" />
+          <h1 class="text-2xl font-bold text-[#1F2937]">
+            GitHub Issues Tracker
+          </h1>
+          <p class="text-base text-[#64748B]">Sign in to manage your issues</p>
+        </div>
+
+        <!-- Error alert -->
+        <div
+          id="error-alert"
+          class="alert alert-error text-sm py-2 hidden gap-2"
+        >
+          <i class="fa-solid fa-xmark"></i
+          ><span id="error-msg">Invalid credentials</span>
+        </div>
+
+        <!-- Username -->
+        <div class="form-control gap-1">
+          <label class="label py-0">
+            <span class="label-text font-bold text-base text-[#1F2937]"
+              >Username</span
+            >
+          </label>
+          <input
+            id="username"
+            type="text"
+            placeholder="Enter Username"
+            class="input input-bordered w-full rounded-xl focus:outline-none focus:border-indigo-500"
+            autocomplete="off"
+          />
+          <span class="text-[#4A00FF] text-sm font-medium mt-1"
+            >Default: admin</span
+          >
+        </div>
+
+        <!-- Password -->
+        <div class="form-control gap-1">
+          <label class="label py-0">
+            <span class="label-text font-bold text-base text-[#1F2937]"
+              >Password</span
+            >
+          </label>
+          <input
+            id="password"
+            type="password"
+            placeholder="Enter Password"
+            class="input input-bordered w-full rounded-xl focus:outline-none focus:border-indigo-500"
+            autocomplete="off"
+          />
+          <span class="text-[#4A00FF] text-sm font-medium mt-1"
+            >Default: admin123</span
+          >
+        </div>
+
+        <!-- Sign In Button -->
+        <button
+          id="login-btn"
+          onclick="handleLogin()"
+          class="btn w-full rounded-xl text-white font-bold text-base mt-1"
+          style="background-color: #4a00ff; border: none"
+        >
+          <span id="btn-text">Sign In</span>
+          <span
+            id="btn-spinner"
+            class="loading loading-spinner loading-sm hidden"
+          ></span>
+        </button>
+
+        <!-- Divider -->
+        <div class="divider text-base-content/40 my-0">OR</div>
+
+        <!-- Demo credentials box -->
+        <div class="bg-base-200 rounded-xl p-4 text-center">
+          <p class="text-sm text-base-content/50 mb-2">Demo Credentials:</p>
+          <p class="text-sm text-base-content">
+            <span class="font-bold">Username:</span> admin
+          </p>
+          <p class="text-sm text-base-content">
+            <span class="font-bold">Password:</span> admin123
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Javascript -->
+    <script src="./scripts/login.js"></script>
+  </body>
 </html>
